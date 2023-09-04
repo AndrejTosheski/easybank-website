@@ -1,0 +1,136 @@
+:root {
+  --darkBlue: hsl(233, 26%, 24%);
+  --limeGreen: hsl(136, 65%, 51%);
+  --brightCyan: hsl(192, 70%, 51%);
+  --grayishBlue: hsl(233, 8%, 62%);
+  --lightGrayishBlue: hsl(220, 16%, 96%);
+  --veryLightGray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --font-sm: 0.875rem;
+  --font-med: 1.125rem;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", sans-serif;
+  font-size: var(--font-med);
+  font-weight: 300;
+  color: var(--grayishBlue);
+  line-height: 1.3;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+
+button,
+.button {
+  padding: 0.875rem 2.1875rem;
+  background: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
+  color: var(--white);
+  font-size: var(--font-sm);
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+@media (max-width: 63.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
+}
+
+.header nav {
+  padding: 1.0625rem 1.5rem;
+}
+.header__logo img {
+  width: 8.8125rem;
+  height: 1.375rem;
+}
+.header__menu span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--darkBlue);
+}
+.header__menu span:not(:last-child) {
+  margin-bottom: 3px;
+}
+.header__links a {
+  position: relative;
+  font-size: var(--font-sm);
+  color: var(--grayishBlue);
+  transition: color 300ms ease-in-out;
+}
+.header__links a:not(:last-child) {
+  margin-right: 32px;
+}
+.header__links a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 5px;
+  background: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
+  opacity: 0;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  transition: opacity 300ms ease-in-out;
+}
+.header__links a:hover {
+  color: var(--darkBlue);
+}
+.header__links a:hover::before {
+  opacity: 1;
+}
+.header__cta {
+  font-size: var(--font-sm);
+  color: car(--white);
+  transition: opacity 300ms ease-in-out;
+}
+.header__cta:hover {
+  opacity: 0.75;
+}/*# sourceMappingURL=style.css.map */
