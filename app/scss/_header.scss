@@ -1,4 +1,8 @@
+@use "mixins" as m;
+
 .header {
+  position: relative;
+  z-index: 1;
   // Hamburger Open Styles
 
   &.open {
@@ -116,16 +120,6 @@
           opacity: 1;
         }
       }
-    }
-  }
-
-  &__cta {
-    font-size: var(--font-sm);
-    color: car(--white);
-    transition: opacity 300ms ease-in-out;
-
-    &:hover {
-      opacity: 0.75;
     }
   }
 }

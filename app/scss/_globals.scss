@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Public Sans", sans-serif;
-  font-size: var(--font-med);
+  font-size: var(--font-sm);
   font-weight: 300;
   color: var(--grayishBlue);
   line-height: 1.3;
@@ -23,6 +23,16 @@ body {
   &.noscroll {
     overflow: hidden;
   }
+
+  @include m.breakpoint-up(large) {
+    font-size: var(--font-lg);
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
 }
 
 a,
@@ -39,6 +49,38 @@ button,
 input,
 textarea {
   font-family: inherit;
+}
+
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+
+  &--pall {
+    padding-top: 2.25rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2.25rem;
+    padding-left: 1.5rem;
+  }
+  &--py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+  }
+  &--px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  &--pt {
+    padding-top: 2.25rem;
+  }
+  &--pr {
+    padding-right: 1.5rem;
+  }
+  &--pb {
+    padding-bottom: 2.25rem;
+  }
+  &--pl {
+    padding-left: 1.5rem;
+  }
 }
 
 // Flexbox
@@ -62,13 +104,20 @@ textarea {
 // Buttons
 button,
 .button {
+  display: inline-block;
   padding: 0.875rem 2.1875rem;
   background: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
   color: var(--white);
   font-size: var(--font-sm);
   border: 0;
   border-radius: 50px;
+  font-size: var(--font-sm);
+  transition: opacity 300ms ease-in-out;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 // Visibility

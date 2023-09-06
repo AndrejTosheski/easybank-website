@@ -8,6 +8,8 @@
   --white: hsl(0, 0%, 100%);
   --font-sm: 0.875rem;
   --font-med: 1.125rem;
+  --font-lg: 1.25rem;
+  --font-xlg: 3.25rem;
 }
 
 html {
@@ -25,13 +27,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Public Sans", sans-serif;
-  font-size: var(--font-med);
+  font-size: var(--font-sm);
   font-weight: 300;
   color: var(--grayishBlue);
   line-height: 1.3;
 }
 body.noscroll {
   overflow: hidden;
+}
+@media (min-width: 64em) {
+  body {
+    font-size: var(--font-lg);
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
 }
 
 a,
@@ -50,6 +63,37 @@ textarea {
   font-family: inherit;
 }
 
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+}
+.container--pall {
+  padding-top: 2.25rem;
+  padding-right: 1.5rem;
+  padding-bottom: 2.25rem;
+  padding-left: 1.5rem;
+}
+.container--py {
+  padding-top: 4.375rem;
+  padding-bottom: 4.375rem;
+}
+.container--px {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.container--pt {
+  padding-top: 2.25rem;
+}
+.container--pr {
+  padding-right: 1.5rem;
+}
+.container--pb {
+  padding-bottom: 2.25rem;
+}
+.container--pl {
+  padding-left: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -65,13 +109,20 @@ textarea {
 
 button,
 .button {
+  display: inline-block;
   padding: 0.875rem 2.1875rem;
   background: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
   color: var(--white);
   font-size: var(--font-sm);
   border: 0;
   border-radius: 50px;
+  font-size: var(--font-sm);
+  transition: opacity 300ms ease-in-out;
   cursor: pointer;
+}
+button:hover,
+.button:hover {
+  opacity: 0.75;
 }
 
 @media (max-width: 63.9375em) {
@@ -86,6 +137,10 @@ button,
   }
 }
 
+.header {
+  position: relative;
+  z-index: 1;
+}
 .header.open .header__toggle span:first-child {
   transform: rotate(45deg);
 }
@@ -172,14 +227,6 @@ button,
 .header__links a:hover::before {
   opacity: 1;
 }
-.header__cta {
-  font-size: var(--font-sm);
-  color: car(--white);
-  transition: opacity 300ms ease-in-out;
-}
-.header__cta:hover {
-  opacity: 0.75;
-}
 
 .has-fade {
   visibility: hidden;
@@ -219,4 +266,99 @@ button,
 }
 .fade-out {
   animation: fade-out 200ms ease-in-out forwards;
+}
+
+.hero {
+  background-color: var(--veryLightGray);
+}
+@media (min-width: 64em) {
+  .hero .container {
+    display: flex;
+    align-items: center;
+  }
+}
+.hero__image {
+  position: relative;
+  background-image: url("/images/bg-intro-mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 17.5rem;
+}
+@media (min-width: 40em) {
+  .hero__image {
+    min-height: 25rem;
+    background-position: center 70%;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image {
+    flex: 3;
+    order: 2;
+    min-height: 41rem;
+    background-image: none;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background-image: url("/images/bg-intro-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 150%;
+    background-size: 122%;
+    background-position: 0% 83%;
+  }
+}
+.hero__image::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url("/images/image-mockups.png");
+  background-size: 93%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+@media (min-width: 40em) {
+  .hero__image::after {
+    background-size: 52%;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image::after {
+    width: 120%;
+    height: 122%;
+    background-size: 94%;
+    background-position: center 150%;
+    left: 22%;
+  }
+}
+.hero__text {
+  text-align: center;
+}
+@media (min-width: 64em) {
+  .hero__text {
+    flex: 2;
+    order: 1;
+    text-align: left;
+  }
+}
+.hero__text h1 {
+  font-weight: 300;
+  font-size: 2.31rem;
+  line-height: 1.15;
+  color: var(--darkBlue);
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 64em) {
+  .hero__text h1 {
+    font-size: var(--font-xlg);
+  }
+}
+.hero__text p {
+  line-height: 1.5;
+  margin-bottom: 2.25rem;
 }/*# sourceMappingURL=style.css.map */
